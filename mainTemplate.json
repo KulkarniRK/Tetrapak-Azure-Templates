@@ -61,8 +61,11 @@
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
-            "storageAccountType": {
-              "value": "[parameters('storageAccountType')]"
+           "appServiceName": {
+              "value": "[parameters('appServiceName')]"
+            },
+            "webAppName": {
+              "value": "[parameters('webAppName')]"
             }
         }
       }
