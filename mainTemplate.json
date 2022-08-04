@@ -14,21 +14,7 @@
         "metadata": {
           "description": "Storage Account type"
         }
-      },
-      "appServiceName": {
-        "type": "string",
-        "defaultValue": "tp-app-ser-1",        
-        "metadata": {
-          "description": "App Service Name"
-        }
-      },
-      "webAppName": {
-        "type": "string",
-        "defaultValue": "tp-web-app-1",        
-        "metadata": {
-          "description": "Web App Name"
-        }
-      }           
+      }          
     },
   "variables": {
   },
@@ -49,27 +35,7 @@
             }
         }
       }
-    },
-    {
-    "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2021-04-01",
-      "name": "linkedWebApp",
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "https://raw.githubusercontent.com/ShambhurajeTP/Tetrapak-Azure-Templates/main/artifacts/linkedWebApp.json",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-           "appServiceName": {
-              "value": "[parameters('appServiceName')]"
-            },
-            "webAppName": {
-              "value": "[parameters('webAppName')]"
-            }
-        }
-      }
-    }        
+    }      
   ],
   "outputs": {
     
