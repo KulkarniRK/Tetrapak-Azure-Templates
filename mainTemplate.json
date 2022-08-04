@@ -26,6 +26,9 @@
       }          
     },
   "variables": {
+     "linked-template": "https://raw.githubusercontent.com/ShambhurajeTP/Tetrapak-Azure-Templates/main/artifacts/linkedStorageAccount.json",
+     "linked-template-two": "https://raw.githubusercontent.com/ShambhurajeTP/Tetrapak-Azure-Templates/main/artifacts/linkedAppService.json"
+  
   },
   "resources": [
     {
@@ -35,19 +38,30 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "uri": "https://raw.githubusercontent.com/ShambhurajeTP/Tetrapak-Azure-Templates/main/artifacts/linkedStorageAccount.json",
+          "uri": "[variables('linked-template')]",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
-            "projectName": {
-                "value": "[parameters('projectName')]"
-            },
-            "storageAccountType": {
-              "value": "[parameters('storageAccountType')]"
-            }
+            "projectName": { "value": "[parameters('projectName')]" },
+            "storageAccountType": { "value": "[parameters('storageAccountType')]" }
         }
       }
-    }      
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2021-04-01",
+      "name": "linkedStorageAccount",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+           "uri": "[variables('linked-template-two')]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+            "projectName": { "value": "[parameters('projectName')]" }           
+        }
+      }
+    }         
   ],
   "outputs": {
     
