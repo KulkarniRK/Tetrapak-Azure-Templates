@@ -2,6 +2,14 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "projectName": {
+            "type": "string",
+            "metadata": {
+                "description": "project Name"
+            },
+            "minLength":1,
+            "maxLength":25             
+        },
       "storageAccountType": {
         "type": "string",
         "defaultValue": "Standard_LRS",
@@ -19,12 +27,12 @@
         "type": "string",
         "defaultValue": "[resourceGroup().location]",
         "metadata": {
-          "description": "Location for all resources."
+          "description": "Location of resource."
         }
       }
     },
     "variables": {
-      "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
+      "storageAccountName": "[concat('tpstore', parameters('projectName'))]"
     },
     "resources": [
       {

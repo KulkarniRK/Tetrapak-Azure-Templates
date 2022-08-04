@@ -2,6 +2,15 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
    "parameters": {
+     "projectName": {
+            "type": "string",
+             "defaultValue": "tptest",
+            "metadata": {
+                "description": "project Name"
+            },
+            "minLength":1,
+            "maxLength":25             
+        },
       "storageAccountType": {
         "type": "string",
         "defaultValue": "Standard_LRS",
@@ -30,6 +39,9 @@
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
+            "projectName": {
+                "value": "[parameters('projectName')]"
+            },
             "storageAccountType": {
               "value": "[parameters('storageAccountType')]"
             }

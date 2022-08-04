@@ -2,66 +2,49 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "projectName": {
+            "type": "string",
+            "metadata": {
+                "description": "project Name"
+            },
+            "minLength":1,
+            "maxLength":25             
+        },
         "appServiceName": {
             "type": "string",
             "metadata": {
-                "description": "App Service Name"
+                "description": "App service Name"
             },
             "minLength":1,
             "maxLength":25             
         },
-        "webAppName": {
-            "type": "string",
-            "metadata": {
-                "description": "Web App Name"
-            },
-            "minLength":1,
-            "maxLength":25             
+        "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]",
+        "metadata": {
+          "description": "Location for all resources."
         }
+      }           
     },
     "functions": [],
-    "variables": {},
-    "resources": [  
+    "variables": {
+        "webAppName": "[concat('tp-web-app-service-', parameters('projectName'))]"
+    },
+    "resources": [          
         {
-            "name": "[parameters('appServiceName')]",
-            "type": "Microsoft.Web/serverfarms",
-            "apiVersion": "2020-12-01",
-            "location": "[resourceGroup().location]",            
-            "sku": {
-                "name": "F1",
-                "capacity": 1
-            },
-            "tags": {
-                "displayName": "[parameters('appServiceName')]"
-            },
-            "properties": {                
-                "name": "[parameters('appServiceName')]",
-                "perSiteScaling": false,
-                "elasticScaleEnabled": false,
-                "maximumElasticWorkerCount": 1,
-                "isSpot": false,
-                "reserved": false,
-                "isXenon": false,
-                "hyperV": false,
-                "targetWorkerCount": 0,
-                "targetWorkerSizeId": 0,
-                "zoneRedundant": false                
-            }
-        },
-        {
-            "name": "[parameters('webAppName')]",
+            "name": "[variables('webAppName')]",
             "type": "Microsoft.Web/sites",
             "apiVersion": "2020-12-01",
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "tags": {
                 "[concat('hidden-related:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/',parameters('appServiceName'))]": "Resource",
-                "displayName": "[parameters('webAppName')]"
+                "displayName": "[variables('webAppName')]"
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Web/serverfarms', parameters('appServiceName'))]"
             ],
             "properties": {                
-                "name": "[parameters('webAppName')]",
+                "name": "[variables('webAppName')]",
                 "serverFarmId": "[resourceId('Microsoft.Web/serverfarms',parameters('appServiceName'))]",
                 "httpsOnly": true  ,
                 "siteConfig":{
