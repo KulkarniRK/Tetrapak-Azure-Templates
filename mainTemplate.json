@@ -67,9 +67,7 @@
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2021-04-01",
       "name": "linkedWebApp", 
-      "dependsOn": [
-                "[resourceId('Microsoft.Resources/deployments', 'linkedAppService')]"
-            ],   
+      "dependsOn": ["[resourceId('Microsoft.Resources/deployments', 'linkedAppService')]"],   
       "properties": {
         "mode": "Incremental",
         "templateLink": {
