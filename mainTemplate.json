@@ -27,7 +27,9 @@
     },
   "variables": {
      "linked-template-storage": "https://raw.githubusercontent.com/ShambhurajeTP/Tetrapak-Azure-Templates/main/artifacts/linkedStorageAccount.json",
-     "linked-template-appservice": "https://raw.githubusercontent.com/ShambhurajeTP/Tetrapak-Azure-Templates/main/artifacts/linkedAppService.json"  
+     "linked-template-appservice": "https://raw.githubusercontent.com/ShambhurajeTP/Tetrapak-Azure-Templates/main/artifacts/linkedAppService.json",
+     "linked-template-webapp": "https://raw.githubusercontent.com/ShambhurajeTP/Tetrapak-Azure-Templates/main/artifacts/linkedWebApp.json",
+      "appServiceName": "[concat('tp-app-service-', parameters('projectName'))]"
   },
   "resources": [
     {
@@ -60,7 +62,26 @@
             "projectName": { "value": "[parameters('projectName')]" }           
         }
       }
-    }         
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2021-04-01",
+      "name": "linkedWebApp", 
+      "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', variables('appServiceName'))]"
+            ],   
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+           "uri": "[variables('linked-template-webapp')]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+            "projectName": { "value": "[parameters('projectName')]" },
+            "appServiceName": { "value": "[variables('appServiceName')]" }           
+        }
+      }
+    }           
   ],
   "outputs": {
     
