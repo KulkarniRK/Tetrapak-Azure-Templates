@@ -26,8 +26,8 @@
       }          
     },
   "variables": {
-     "linked-template": "https://raw.githubusercontent.com/ShambhurajeTP/Tetrapak-Azure-Templates/main/artifacts/linkedStorageAccount.json",
-     "linked-template-two": "https://raw.githubusercontent.com/ShambhurajeTP/Tetrapak-Azure-Templates/main/artifacts/linkedAppService.json"  
+     "linked-template-storage": "https://raw.githubusercontent.com/ShambhurajeTP/Tetrapak-Azure-Templates/main/artifacts/linkedStorageAccount.json",
+     "linked-template-appservice": "https://raw.githubusercontent.com/ShambhurajeTP/Tetrapak-Azure-Templates/main/artifacts/linkedAppService.json"  
   },
   "resources": [
     {
@@ -37,7 +37,7 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "uri": "[variables('linked-template')]",
+          "uri": "[variables('linked-template-storage')]",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
@@ -53,7 +53,7 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-           "uri": "[variables('linked-template-two')]",
+           "uri": "[variables('linked-template-appservice')]",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
