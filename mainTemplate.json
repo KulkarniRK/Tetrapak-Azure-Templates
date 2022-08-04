@@ -68,7 +68,7 @@
       "apiVersion": "2021-04-01",
       "name": "linkedWebApp", 
       "dependsOn": [
-                "[resourceId('Microsoft.Web/serverfarms', variables('appServiceName'))]"
+                "[resourceId('Microsoft.Resources/deployments', 'linkedAppService')]"
             ],   
       "properties": {
         "mode": "Incremental",
