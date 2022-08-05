@@ -5,7 +5,7 @@
        "projectName": {
             "type": "string",
             "metadata": {
-                "description": "project Name"
+                "description": "project Name."
             },
             "minLength":1,
             "maxLength":25             
