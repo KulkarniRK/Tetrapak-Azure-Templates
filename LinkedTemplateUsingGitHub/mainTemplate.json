@@ -26,9 +26,9 @@
       }          
     },
   "variables": {
-     "linked-template-storage": "https://raw.githubusercontent.com/ShambhurajeTP/Tetrapak-Azure-Templates/main/artifacts/linkedStorageAccount.json",
-     "linked-template-appservice": "https://raw.githubusercontent.com/ShambhurajeTP/Tetrapak-Azure-Templates/main/artifacts/linkedAppService.json",
-     "linked-template-webapp": "https://raw.githubusercontent.com/ShambhurajeTP/Tetrapak-Azure-Templates/main/artifacts/linkedWebApp.json",
+     "linked-template-storage": "https://raw.githubusercontent.com/ShambhurajeTP/Tetrapak-Azure-Templates/main/LinkedTemplateUsingGitHub/artifacts/linkedStorageAccount.json",
+     "linked-template-appservice": "https://raw.githubusercontent.com/ShambhurajeTP/Tetrapak-Azure-Templates/main/LinkedTemplateUsingGitHub/artifacts/linkedAppService.json",
+     "linked-template-webapp": "https://raw.githubusercontent.com/ShambhurajeTP/Tetrapak-Azure-Templates/main/LinkedTemplateUsingGitHub/artifacts/linkedWebApp.json",
       "appServiceName": "[concat('tp-app-service-', parameters('projectName'))]"
   },
   "resources": [
