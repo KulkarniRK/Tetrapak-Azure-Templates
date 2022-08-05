@@ -2,6 +2,8 @@
 Azure CLI - Deployment Command 
 =====================================
 
+#Deploy the Azyre Templates
+
 az deployment group create \
   --name linkedTemplateWithUri \
   --resource-group webRG \
