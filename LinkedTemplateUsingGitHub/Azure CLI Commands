@@ -1,0 +1,9 @@
+=====================================
+Azure CLI - Deployment Command 
+=====================================
+
+az deployment group create \
+  --name linkedTemplateWithUri \
+  --resource-group webRG \
+  --template-uri "https://raw.githubusercontent.com/ShambhurajeTP/Tetrapak-Azure-Templates/main/LinkedTemplateUsingGitHub/mainTemplate.json" \
+  --parameters projectName=lpm storageAccountType=Standard_LRS
