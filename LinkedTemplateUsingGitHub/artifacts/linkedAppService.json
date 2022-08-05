@@ -49,10 +49,6 @@
             }
       }
     ],
-    "outputs": {
-      "appServiceName": {
-        "type": "string",
-        "value": "[reference(variables('appServiceName'))]"
-      }
+    "outputs": {      
     }    
   }
