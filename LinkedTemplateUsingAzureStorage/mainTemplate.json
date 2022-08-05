@@ -1,0 +1,33 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+     "parameters": {
+        "templateUri": {
+            "type": "string"
+        },
+        "templateSas": {
+            "type": "securestring"
+        }                 
+      },
+    "variables": {
+     
+    },
+    "resources": [
+      {
+        "type": "Microsoft.Resources/deployments",
+        "apiVersion": "2021-04-01",
+        "name": "linkedStorageAccount",
+        "properties": {
+          "mode": "Incremental",
+          "templateLink": {
+           "uri": "[concat(parameters('templateUri'),'?',parameters('templateSas'))]",
+            "contentVersion": "1.0.0.0"
+          }         
+        }
+      }           
+    ],
+    "outputs": {
+      
+    }
+  }
+  

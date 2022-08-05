@@ -48,5 +48,11 @@
                 "zoneRedundant": false                
             }
       }
-    ]    
+    ],
+    "outputs": {
+      "appServiceName": {
+        "type": "string",
+        "value": "[reference(variables('appServiceName'))]"
+      }
+    }    
   }
