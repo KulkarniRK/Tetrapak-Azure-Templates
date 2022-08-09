@@ -21,7 +21,6 @@ steps:
     location: 'West Europe'
     templateLocation: 'URL of the file'
     csmFileLink: 'https://raw.githubusercontent.com/KulkarniRK/Tetrapak-Azure-Templates/main/LinkedTemplateUsingGitHub/mainTemplateForTP.json'
-    overrideParameters: |
-      - projectName mytestapptp
+    overrideParameters: '-projectName mytestapptp'
     deploymentMode: 'Incremental'
     deploymentName: 'DeployPipelineTemplate'
