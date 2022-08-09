@@ -20,7 +20,7 @@ steps:
     resourceGroupName: 'TA-MOBAPPS-RGP-DEV-001'
     location: 'West Europe'
     templateLocation: 'URL of the file'
-    csmFileLink: 'https://raw.githubusercontent.com/ShambhurajeTP/Tetrapak-Azure-Templates/main/LinkedTemplateUsingGitHub/mainTemplateForTP.json'
+    csmFileLink: 'https://raw.githubusercontent.com/KulkarniRK/Tetrapak-Azure-Templates/main/LinkedTemplateUsingGitHub/mainTemplateForTP.json'
     overrideParameters: |
       - projectName mytestapptp 
       - storageAccountType Standard_LRS
