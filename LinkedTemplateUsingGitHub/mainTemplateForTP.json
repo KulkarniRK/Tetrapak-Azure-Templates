@@ -26,7 +26,7 @@
       }          
     },
   "variables": {
-     "linked-template-storage": "https://raw.githubusercontent.com/ShambhurajeTP/Tetrapak-Azure-Templates/main/LinkedTemplateUsingGitHub/artifacts/linkedStorageAccount.json"     
+     "linked-template-storage": "https://raw.githubusercontent.com/KulkarniRK/Tetrapak-Azure-Templates/main/LinkedTemplateUsingGitHub/artifacts/linkedStorageAccount.json"     
   },
   "resources": [
     {
